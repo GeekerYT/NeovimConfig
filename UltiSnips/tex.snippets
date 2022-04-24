@@ -1,0 +1,50 @@
+snippet beg "begin{} / end{}" bi
+\begin{$1}
+	${0:${VISUAL}}
+\end{$1}
+endsnippet
+
+
+snippet fig "Figure environment" bi
+\begin{figure}[${1:htpb}]
+	\centering
+	${2:\includegraphics[width=0.8\textwidth]{$3}}
+	\caption{${4:$3}}
+	\label{fig:${5:${3/\W+/-/g}}}
+\end{figure}
+endsnippet
+
+snippet fig* "Figure* environment" bi
+\begin{figure*}
+	\centering
+	${1:\includegraphics[width=0.8\textwidth]{$2}}
+	\caption{${3:$2}}
+	\label{fig:${4:${3/\W+/-/g}}}
+\end{figure*}
+endsnippet
+
+
+snippet table "Table environment" b
+\begin{table}[${1:htpb}]
+	\centering
+	\caption{${2:caption}}
+	\label{tab:${3:label}}
+
+	\begin{${4:t}${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${5:c}}
+		$0${5/(?<=.)(c|l|r)|./(?1: & )/g}
+	\end{$4${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
+\end{table}
+endsnippet
+
+
+snippet table* "Table* environment" b
+\begin{table*}
+	\centering
+	\caption{${1:caption}}
+	\label{tab:${2:label}}
+
+	\begin{${3:t}${3/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${4:c}}
+		$0${4/(?<=.)(c|l|r)|./(?1: & )/g}
+	\end{$3${3/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
+\end{table*}
+endsnippet
